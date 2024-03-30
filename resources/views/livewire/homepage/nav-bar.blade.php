@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-secondary">
     <div class="container">
-        <a class="navbar-brand text-white" href="#">Navbar</a>
+        <a wire:navigate class="navbar-brand text-white" href="{{ route('/') }}">Navbar</a>
         <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-expanded="false">
             <span class="navbar-toggler-icon "></span>
@@ -18,7 +18,8 @@
                         {{-- Set Link to actived with active class based on --}}
                         <a wire:navigate class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} "
                             href="{{ route('home') }}">Home</a>
-                        <a class="nav-link" href="#">About</a>
+                        <a wire:navigate class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
+                            href="{{ route('about') }}">About</a>
                     </div>
                 </div>
             </div>

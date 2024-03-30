@@ -32,9 +32,14 @@
 
     {{-- Header Blade --}}
 
-    @if (request()->routeIs('home'))
+    @if (request()->routeIs('/'))
         <x-homepage.header :title="__('A Laravel Online Store')" />
+    @elseif (request()->routeIs('home'))
+        <x-homepage.header :title="__('Home Page')" />
+    @elseif (request()->routeIs('about'))
+        <x-homepage.header :title="__('About Page')" />
     @endif
+
 
 
 
