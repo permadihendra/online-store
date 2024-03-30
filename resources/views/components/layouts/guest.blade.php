@@ -27,7 +27,7 @@
         </div>
     </nav> --}}
 
-    // NavBar livewire Component
+    {{-- NavBar livewire Component --}}
     <livewire:Homepage.NavBar />
 
     <header class="masthead text-white text-center py-4 bg-primary">
@@ -46,16 +46,7 @@
 
     {{-- FOOTER --}}
     <!-- footer -->
-    <div class="copyright py-4 text-center bg-secondary">
-        <div class="container text-white">
-            <small>
-                Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-                    href="https://twitter.com/danielgarax">
-                    2024
-                </a> - <b>@permadimedia</b>
-            </small>
-        </div>
-    </div>
+    <x-homepage.footer />
     <!-- footer -->
 
 </body>
