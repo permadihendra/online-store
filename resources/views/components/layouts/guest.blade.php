@@ -27,15 +27,15 @@
         </div>
     </nav> --}}
 
-    <nav class="navbar navbar-expand-sm" style="background-color: #2c3e50;">
+    <nav class="navbar navbar-expand-sm bg-secondary">
         <div class="container">
             <a class="navbar-brand text-white" href="#">Navbar</a>
             <button class="navbar-toggler" data-bs-theme="dark" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-expanded="false">
                 <span class="navbar-toggler-icon "></span>
             </button>
-            <div class="offcanvas offcanvas-end px-3 w-50 text-white" style="background-color: #2c3e50;" tabindex="-1"
-                id="offcanvasMenu" aria-labelledby="offcanvasMenu">
+            <div class="offcanvas offcanvas-end px-3 w-50 text-white bg-secondary" tabindex="-1" id="offcanvasMenu"
+                aria-labelledby="offcanvasMenu">
                 <div class="offcanvas-header" data-bs-theme="dark">
                     <h5 class="offcanvas-title" id="offcanvasMenu">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -53,7 +53,7 @@
         </div>
     </nav>
 
-    <header class="masthead text-white text-center py-4" style="background-color: #1abc9c">
+    <header class="masthead text-white text-center py-4 bg-primary">
         <div class="container d-flex flex-column align-items-center">
             A Laravel Online Store
         </div>
@@ -69,7 +69,7 @@
 
     {{-- FOOTER --}}
     <!-- footer -->
-    <div class="copyright py-4 text-center" style="background-color: #2c3e50;">
+    <div class="copyright py-4 text-center bg-secondary">
         <div class="container text-white">
             <small>
                 Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
