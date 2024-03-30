@@ -1,4 +1,4 @@
-<x-layouts.guest>
+<x-layouts.guest :title="__('About')">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <p>Laravel Online Store</p>

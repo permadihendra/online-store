@@ -11,6 +11,6 @@ class Home extends Component
     #[Layout('components.layouts.guest')]  //Spesific the layout path, this is different form the docs
     public function render()
     {
-        return view('livewire.homepage.home');
+        return view('livewire.homepage.home')->title('Online Store');
     }
 }
