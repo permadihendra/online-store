@@ -31,7 +31,12 @@
     <livewire:Homepage.NavBar />
 
     {{-- Header Blade --}}
-    <x-homepage.header :title="__('A Laravel Online Store')" />
+
+    @if (request()->routeIs('home'))
+        <x-homepage.header :title="__('A Laravel Online Store')" />
+    @endif
+
+
 
     {{-- CONTENT --}}
 
