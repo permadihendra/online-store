@@ -15,8 +15,10 @@
                 <div class="ms-auto">
                     <div class="navbar-nav ms-auto">
 
-                        <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link text-white" href="#">About</a>
+                        {{-- Set Link to actived with active class based on --}}
+                        <a wire:navigate class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} "
+                            href="{{ route('home') }}">Home</a>
+                        <a class="nav-link" href="#">About</a>
                     </div>
                 </div>
             </div>

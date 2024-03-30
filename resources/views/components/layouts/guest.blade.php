@@ -30,11 +30,8 @@
     {{-- NavBar livewire Component --}}
     <livewire:Homepage.NavBar />
 
-    <header class="masthead text-white text-center py-4 bg-primary">
-        <div class="container d-flex flex-column align-items-center">
-            A Laravel Online Store
-        </div>
-    </header>
+    {{-- Header Blade --}}
+    <x-homepage.header :title="__('A Laravel Online Store')" />
 
     {{-- CONTENT --}}
 

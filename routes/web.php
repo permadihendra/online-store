@@ -8,4 +8,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', Home::class);
+Route::get('/', Home::class)->name('home');
