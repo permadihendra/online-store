@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\ProductModel;
 
 class ProductSeeder extends Seeder
 {
@@ -13,14 +13,13 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('products')->insert(
+        $products = [
             [
             'name' => 'TV',
             'description' => 'Best TV Ever',
             'image' => 'game.png',
             'price' => 7000,
             ],
-
             [
                
                 'name' => 'iPhone',
@@ -28,7 +27,6 @@ class ProductSeeder extends Seeder
                 'image' => 'submarine.jpg',
                 'price' => 1000,
             ],
-            
             [
                 
                 'name' => 'Chromecast',
@@ -36,7 +34,6 @@ class ProductSeeder extends Seeder
                 'image' => 'safe.jpg',
                 'price' => 1000,
             ],
-            
             [
                
                 'name' => 'Glasses',
@@ -44,7 +41,11 @@ class ProductSeeder extends Seeder
                 'image' => 'game.png',
                 'price' => 1000,
             ],
-    );
+        ];
+
+        foreach($products as $product){
+            ProductModel::create($product);
+        }
     }
 }
 

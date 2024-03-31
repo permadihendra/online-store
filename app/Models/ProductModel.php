@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductModel extends Model
 {
     use HasFactory;
+
+    //define spesific table
+    protected $table = 'products';
 }
