@@ -24,8 +24,10 @@ class Product extends Component
     }
     public function showDetail($id){
         
-        $products = ProductModel::findOrFail();
 
+    $this->products = ProductModel::findOrFail($id);
+    // dd($this->products->name);
+    
         $this->products_name = $this->products->name;
         $this->products_desc = $this->products->description;
         $this->products_image = $this->products->image;
