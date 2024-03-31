@@ -18,6 +18,8 @@
                         {{-- Set Link to actived with active class based on --}}
                         <a wire:navigate class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} "
                             href="{{ route('home') }}">Home</a>
+                        <a wire:navigate class="nav-link {{ request()->routeIs('product') ? 'active' : '' }}"
+                            href="{{ route('product') }}">Products</a>
                         <a wire:navigate class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                             href="{{ route('about') }}">About</a>
                     </div>
