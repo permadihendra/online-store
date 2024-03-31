@@ -17,37 +17,37 @@ class Product extends Component
     public $products = [];
 
     public $products_data = [
-        [
-            'id' => '1',
-            'name' => 'TV',
-            'description' => 'Best TV Ever',
-            'image' => 'game.png',
-            'price' => 1000,
-        ],
+        // [
+        //     'id' => '1',
+        //     'name' => 'TV',
+        //     'description' => 'Best TV Ever',
+        //     'image' => 'game.png',
+        //     'price' => 1000,
+        // ],
 
-        [
-            'id' => '2',
-            'name' => 'iPhone',
-            'description' => 'Best iPhone Ever',
-            'image' => 'submarine.jpg',
-            'price' => 1000,
-        ],
+        // [
+        //     'id' => '2',
+        //     'name' => 'iPhone',
+        //     'description' => 'Best iPhone Ever',
+        //     'image' => 'submarine.jpg',
+        //     'price' => 1000,
+        // ],
 
-        [
-            'id' => '3',
-            'name' => 'Chromecast',
-            'description' => 'Best Chromecast Ever',
-            'image' => 'safe.jpg',
-            'price' => 1000,
-        ],
+        // [
+        //     'id' => '3',
+        //     'name' => 'Chromecast',
+        //     'description' => 'Best Chromecast Ever',
+        //     'image' => 'safe.jpg',
+        //     'price' => 1000,
+        // ],
 
-        [
-            'id' => '4',
-            'name' => 'Glasses',
-            'description' => 'Best Glasses Ever',
-            'image' => 'game.png',
-            'price' => 1000,
-        ],
+        // [
+        //     'id' => '4',
+        //     'name' => 'Glasses',
+        //     'description' => 'Best Glasses Ever',
+        //     'image' => 'game.png',
+        //     'price' => 1000,
+        // ],
     ];
 
     public function mount(){
