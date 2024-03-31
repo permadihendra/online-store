@@ -8,6 +8,14 @@ use Livewire\Component;
 class Product extends Component
 {
 
+    public $product_id;
+
+    public $products_name, $products_desc, $products_image, $products_price;
+
+    public $index;
+
+    public $products = [];
+
     public $products_data = [
         [
             'id' => '1',
@@ -21,7 +29,7 @@ class Product extends Component
             'id' => '2',
             'name' => 'iPhone',
             'description' => 'Best iPhone Ever',
-            'image' => 'game.png',
+            'image' => 'submarine.jpg',
             'price' => 1000,
         ],
 
@@ -29,7 +37,7 @@ class Product extends Component
             'id' => '3',
             'name' => 'Chromecast',
             'description' => 'Best Chromecast Ever',
-            'image' => 'game.png',
+            'image' => 'safe.jpg',
             'price' => 1000,
         ],
 
@@ -41,6 +49,20 @@ class Product extends Component
             'price' => 1000,
         ],
     ];
+
+    public function mount(){
+        
+      
+    }
+    public function showDetail($id){
+        $name = array_column($this->products_data, 'id');
+        $index = array_search($id, $name);
+
+        $this->products_name = $this->products_data[$index]['name'];
+        $this->products_desc = $this->products_data[$index]['description'];
+        $this->products_image = $this->products_data[$index]['image'];
+        $this->products_price = $this->products_data[$index]['price'];
+    }
 
 
     #[Layout('components.layouts.guest')]
