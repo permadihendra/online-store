@@ -1,6 +1,5 @@
 <div>
 
-    @push('pagetitle', 'sds')
 
     @if ($products_name)
         <div class="card mb-3 mx-auto" style="max-width: 30rem;">
