@@ -13,21 +13,12 @@
 <body>
     <div class="row g-0">
         {{-- Sidebar --}}
-        <div class="p-3 col fixed text-white bg-dark">
-            <a href="{{ route('admin') }}" class="text-white text-decoration-none">Admin Panel</a>
-            <hr>
-            <ul class="nav flex-column">
-                <li><a href="" class="nav-link text-white">Home</a></li>
-                <li><a href="" class="nav-link text-white">Products</a></li>
-                <li>
-                    <br>
-                </li>
-                <li><a href="" class="nav-link text-white">- back to homepage</a></li>
-            </ul>
-        </div>
+        <livewire:admin.sidebar />
         {{-- end Sidebar --}}
 
         <div class="col content-grey">
+
+            {{-- user navigation --}}
             <nav class="p-3 shadow text-end">
                 <span class="profile-font">Admin</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
