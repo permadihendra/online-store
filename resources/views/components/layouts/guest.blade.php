@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? 'Page Title' }}</title>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -36,6 +37,8 @@
         <x-homepage.header :title="__('A Laravel Online Store')" />
     @elseif (request()->routeIs('home'))
         <x-homepage.header :title="__('Home Page')" />
+    @elseif (request()->routeIs('product'))
+        <x-homepage.header :title="__('Product Information')" />
     @elseif (request()->routeIs('about'))
         <x-homepage.header :title="__('About Page')" />
     @endif
