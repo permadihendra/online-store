@@ -11,4 +11,6 @@ class ProductModel extends Model
 
     //define spesific table
     protected $table = 'products';
+
+    protected $fillable = ['name', 'price', 'description'];
 }
