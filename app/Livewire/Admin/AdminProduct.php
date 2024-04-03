@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -26,21 +27,21 @@ class AdminProduct extends Component
             'name' => 'required|max:255',
             'price' => 'required|numeric|gt:0',
             'description' => 'required',
-            'file' =>'image|max:2048',
+            'file' => 'required|image',
         ]);
 
         //Upload file to storage/images and get the filename url
-        $name = $this->file->getClientOriginalName();
-        $path = $this->file->storeAs('images', $name, 'public');
-
-        $this->image = $path;
+        $name = Str::slug($this->name);
+        $extension = $this->file->extension();
+        $name_ex = $name.'.'.$extension;
+        $path = $this->file->storeAs('images', $name_ex, 'public');
 
         ProductModel::create([
             'name' => $this->name,
             'price' => $this->price,
             'description' => $this->description,
-            'image' => $name,
-            
+            'image' => $name_ex,
+            'image_path' => $path,
         ]);
 
        

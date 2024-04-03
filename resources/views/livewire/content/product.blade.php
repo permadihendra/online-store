@@ -24,7 +24,7 @@
         @foreach ($products_data as $product)
             <div wire:key="{{ $product->id }}" class="card mx-3 col-sm-5 col-lg-2 mb-5">
 
-                <img src="{{ asset('/storage/' . $product->image) }}" class="card-img-top">
+                <img src="{{ asset('/storage/' . $product->image_path) }}" class="card-img-top">
                 <div class="card-body text-center">
 
                     <button type="button" wire:click="showDetail({{ $product->id }})" href=""

@@ -56,15 +56,15 @@
                             <label for="image" class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image :</label>
                             <div class="col-lg-10 col-md-6 col-sm-12">
                                 <input wire:model="file" name="image" type="file" class="form-control" />
-                                @error('image')
+                                @error('file')
                                     <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
                         </div>
                     </div>
-                    @if ($image)
-                        <img src="{{ $image->temporaryUrl() }}">
+                    @if ($file)
+                        <img src="{{ $file->temporaryUrl() }}">
                     @endif
 
                 </div>
@@ -94,7 +94,7 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->image }}</td>
+                            <td>{{ $product->image_path }}</td>
                             <td>Edit : Delete</td>
                         </tr>
                     @endforeach
