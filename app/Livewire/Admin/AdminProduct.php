@@ -31,11 +31,12 @@ class AdminProduct extends Component
         ]);
 
         //Upload file to storage/images and get the filename url
-        $name = Str::slug($this->name);
-        $extension = $this->file->extension();
-        $name_ex = $name.'.'.$extension;
-        $path = $this->file->storeAs('images', $name_ex, 'public');
+        $name = Str::slug($this->name); //make a slug from data name, for naming the uploaded file
+        $extension = $this->file->extension(); // get the uploaded file extension
+        $name_ex = $name.'.'.$extension; // concantenate file name and extension
+        $path = $this->file->storeAs('images', $name_ex, 'public'); // store file in "images" folder public 
 
+        //insert data to database
         ProductModel::create([
             'name' => $this->name,
             'price' => $this->price,
