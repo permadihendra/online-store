@@ -2,19 +2,18 @@
 
 {{-- Create Product Form --}}
 <div>
+
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <div class="card mb-4">
         <div class="card-header">
             Create Product
         </div>
         <div class="card-body">
-            @if ($errors->any())
-                <ul class="alert alert-danget list-unstyled">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-
             <form wire:submit="store">
                 @csrf
                 <div class="row">
@@ -24,6 +23,9 @@
                             <div class="col-lg-10 col-md-10 col-sm-12">
                                 <input wire:model="name" id="name" type="text" name="name"
                                     value="{{ old('name') }}" class="form-control" />
+                                @error('name')
+                                    <span class="form-text text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -32,7 +34,10 @@
                             <label for="price" class="col-lg-2 col-md-6 col-sm-12 col-form-label">Price: </label>
                             <div class="col-lg-10 col-md-10 col-sm-12">
                                 <input wire:model="price" id="price" name="price" type="number"
-                                    value="{{ old('price') }}" class="form-control">
+                                    value="{{ old('price') }}" class="form-control" />
+                                @error('price')
+                                    <span class="form-text text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -41,7 +46,29 @@
                     <label for="description" class="form-label">Description :</label>
                     <textarea wire:model="description" name="description" id="description" rows="3" value="{{ old('description') }}"
                         class="form-control"></textarea>
+                    @error('description')
+                        <span class="form-text text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3 row">
+                            <label for="image" class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image :</label>
+                            <div class="col-lg-10 col-md-6 col-sm-12">
+                                <input wire:model="file" name="image" type="file" class="form-control" />
+                                @error('image')
+                                    <span class="form-text text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                        </div>
+                    </div>
+                    @if ($image)
+                        <img src="{{ $image->temporaryUrl() }}">
+                    @endif
+
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
@@ -58,6 +85,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Images</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -66,6 +94,7 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
+                            <td>{{ $product->image }}</td>
                             <td>Edit : Delete</td>
                         </tr>
                     @endforeach
