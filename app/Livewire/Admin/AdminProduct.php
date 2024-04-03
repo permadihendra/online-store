@@ -27,7 +27,7 @@ class AdminProduct extends Component
             'name' => 'required|max:255',
             'price' => 'required|numeric|gt:0',
             'description' => 'required',
-            'file' => 'required|image',
+            'file' => 'required|image|max:1024',
         ]);
 
         //Upload file to storage/images and get the filename url
