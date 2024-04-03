@@ -35,7 +35,7 @@ class Product extends Component
     
         $this->products_name = $this->products->name;
         $this->products_desc = $this->products->description;
-        $this->products_image = $this->products->image;
+        $this->products_image = $this->products->image_path;
         $this->products_price = $this->products->price;
         
         $this->setTitle($this->products_name);
