@@ -76,7 +76,7 @@ class AdminProduct extends Component
 
     public function cancel(){
         $this->editMode = false;
-        $this->redirect('admin.products');
+        $this->redirect('admin.products', navigate: true);
 
     }
 
@@ -129,7 +129,7 @@ class AdminProduct extends Component
         
 
         session()->flash('status', 'Product successfully edited.');
-        $this->redirect('admin.products');
+        $this->redirect('admin.products', navigate: true);
 
     }
 
