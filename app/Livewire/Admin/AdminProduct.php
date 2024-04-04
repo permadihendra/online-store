@@ -13,11 +13,14 @@ class AdminProduct extends Component
 {
     use WithFileUploads;
 
-    public $name, $price, $description, $image, $file;
+    public $name, $price, $description, $image, $file, $form_title;
 
-    public $products;
+    public $products, $products_edit;
 
+    public $editMode = false;
+    
     public function mount(){
+        $this->form_title = "Create Product";
         $this->products = ProductModel::get();
     }
 
@@ -53,6 +56,36 @@ class AdminProduct extends Component
 
         $this->redirect('admin.products', navigate: true);
 
+    }
+
+    public function edit($id){
+        $this->form_title = "Edit Products";
+        $this->editMode = true;
+
+        $products = ProductModel::findOrFail($id);
+
+        $this->name = $products->name;
+        $this->price = $products->price;
+        $this->description = $products->description;
+        $this->file = $products->image_path;
+
+    }
+
+    public function cancel(){
+        $this->editMode = false;
+        $this->redirect('admin.products', navigate: true);
+
+    }
+
+    public function update($id){
+
+    }
+
+    public function delete($id){
+
+        ProductModel::destroy($id);
+        session()->flash('status', 'Product successfully deleted!.');
+        $this->redirect('admin.products', navigate:true);
     }
 
     #[Layout('components.layouts.admin')]
