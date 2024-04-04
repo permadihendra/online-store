@@ -15,7 +15,7 @@
             {{ $form_title }}
         </div>
         <div class="card-body">
-            <form wire:submit="store">
+            <form>
                 @csrf
                 <div class="row">
                     <div class="col">
@@ -62,8 +62,8 @@
                                 @enderror
                             </div>
                             {{-- show saved image path, if editMode && $file is true --}}
-                            @if ($editMode && $file)
-                                <span class="form-text text-primary">saved image : {{ $file }}</span>
+                            @if ($editMode && $saved_file)
+                                <span class="form-text text-primary">saved image : {{ $saved_file }}</span>
                             @endif
                         </div>
                     </div>
@@ -72,13 +72,14 @@
                     @endif --}}
 
                 </div>
-                @if ($editMode)
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button wire:click="cancel" type="submit" class="btn btn-danger">Cancel</button>
-                @else
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                @endif
+
             </form>
+            @if ($editMode)
+                <button wire:click="update({{ $id }})" class="btn btn-primary">Save</button>
+                <button wire:click="cancel" class="btn btn-danger">Cancel</button>
+            @else
+                <button wire:click="store" class="btn btn-primary">Submit</button>
+            @endif
 
         </div>
     </div>
