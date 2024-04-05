@@ -1,2 +1,2 @@
 import "./bootstrap";
-import "./getbootstrap.min";
+// import "./getbootstrap.min.js";

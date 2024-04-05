@@ -1,4 +1,7 @@
 <div class="row justify-content-center">
+
+    Welcome {{ Auth::user()->role }}
+
     <div class="col-md-6 col-lg-4 mb-2 w-25">
         <img src="{{ asset('./img/game.png') }}" class="img-fluid rounded ">
     </div>
