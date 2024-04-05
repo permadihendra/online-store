@@ -25,3 +25,5 @@ Route::get('/product', Product::class)->name('product');
 Route::get('admin', App\Livewire\Admin\Home::class)->name('admin'); // include with use namespace because class name is identical
 
 Route::get('admin.products', AdminProduct::class)->name('admin.products');
+
+Route::get('test', App\Livewire\Test\Index::class)->name('test');
