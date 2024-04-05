@@ -20,6 +20,8 @@
                             href="{{ route('home') }}">Home</a>
                         <a wire:navigate class="nav-link {{ request()->routeIs('product') ? 'active' : '' }}"
                             href="{{ route('product') }}">Products</a>
+                        <a wire:navigate class="nav-link {{ request()->routeIs('cart') ? 'active' : '' }}"
+                            href="{{ route('cart') }}">Cart</a>
                         <a wire:navigate class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                             href="{{ route('about') }}">About</a>
                         <div class="vr bg-white mx-2 d-lg-block"></div>

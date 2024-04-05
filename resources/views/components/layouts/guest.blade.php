@@ -39,6 +39,8 @@
         <x-homepage.header :title="__('Home Page')" />
     @elseif (request()->routeIs('product'))
         <x-homepage.header :title="__('Product Information')" />
+    @elseif (request()->routeIs('cart'))
+        <x-homepage.header :title="__('Cart - Online Store')" />
     @elseif (request()->routeIs('about'))
         <x-homepage.header :title="__('About Page')" />
     @endif

@@ -9,10 +9,26 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $products_name }}</h5>
+                        <h5 class="card-title">{{ $products_name }} (${{ $products_price }})</h5>
                         <p class="card-text">{{ $products_desc }}</p>
-                        <p class="card-text">IDR {{ $products_price }}</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <p class="card-text">
+                        <form action="" wire:submit="addToCart({{ $products_id }})">
+                            <div class="row">
+                                @csrf
+                                <div class="col-auto">
+                                    <div class="input-group col-auto">
+                                        <div class="input-group-text">Quantity</div>
+                                        <input wire:model="product_quantity" type="number" min="1"
+                                            max="10" class="form-control quantity-input" name="quantity"
+                                            value="1">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                                </div>
+                            </div>
+                        </form>
+                        </p>
                     </div>
                 </div>
             </div>

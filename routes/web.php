@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Homepage\Home;
 use App\Livewire\Homepage\Index;
 use App\Livewire\Content\Product;
+use App\Livewire\Content\Cart;
 use App\Livewire\Admin\AdminProduct;
 
 // use App\Http\Middleware\AdminAuthMiddleware;
@@ -22,6 +23,7 @@ Route::get('/about', function(){
 })->name('about');
 
 Route::get('/product', Product::class)->name('product');
+Route::get('/cart', Cart::class)->name('cart');
 
 Route::middleware('admin')->group(function(){
     Route::get('admin', App\Livewire\Admin\Home::class)->name('admin'); // include with use namespace because class name is identical
