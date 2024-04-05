@@ -22,7 +22,21 @@
                             href="{{ route('product') }}">Products</a>
                         <a wire:navigate class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                             href="{{ route('about') }}">About</a>
+                        <div class="vr bg-white mx-2 d-lg-block"></div>
+                        @guest
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                            <a href="{{ route('register') }}" class="nav-link">Register</a>
+                        @else
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a role="button" href="" class="nav-link"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit()">Logout</a>
+                            </form>
+                        @endguest
+
                     </div>
+
                 </div>
             </div>
         </div>

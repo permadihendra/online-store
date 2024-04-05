@@ -29,4 +29,4 @@ Route::get('admin.products', AdminProduct::class)->name('admin.products');
 Route::get('test', App\Livewire\Test\Index::class)->name('test');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -49,7 +49,9 @@
     {{-- CONTENT --}}
 
     <div class="container my-4">
+
         {{ $slot }}
+
     </div>
 
     {{-- END OF CONTENT --}}
