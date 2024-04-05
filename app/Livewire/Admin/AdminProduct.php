@@ -31,7 +31,7 @@ class AdminProduct extends Component
             'name' => 'required|max:255',
             'price' => 'required|numeric|gt:0',
             'description' => 'required',
-            'file' => 'required|image|max:1024',
+            'file' => 'image|max:1024',
         ]);
 
         //Upload file to storage/images and get the filename url
@@ -86,6 +86,7 @@ class AdminProduct extends Component
             'name' => 'required|max:255',
             'price' => 'required|numeric|gt:0',
             'description' => 'required',
+            'file' => 'image|max:1024',
         ]);
 
 
@@ -135,7 +136,18 @@ class AdminProduct extends Component
 
     public function delete($id){
 
+        $product = ProductModel::find($id);
         ProductModel::destroy($id);
+
+        //Delete the Image
+
+        $checkfile = 'public/'.$product->image_path;  // assign public/ for the image full path 
+      
+      //check if the file exist
+        if(Storage::exists($checkfile)){
+           Storage::delete($checkfile);  // delete the file from storage
+        }
+
         session()->flash('status', 'Product successfully deleted!.');
         $this->redirect('admin.products', navigate:true);
     }
