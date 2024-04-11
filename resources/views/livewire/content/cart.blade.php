@@ -6,6 +6,11 @@
             {{ session('status') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+    @elseif (session('statusNotLoggin'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('statusNotLoggin') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
 
@@ -24,14 +29,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($productsInCart as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>{{ session('products')[$product->id] }}</td>
-                        </tr>
-                    @endforeach
+                    @if ($productsInCart)
+                        @foreach ($productsInCart as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ session('products')[$product->id] }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
 
                 </tbody>
             </table>
@@ -41,7 +48,8 @@
                     <a href="" class="btn btn-outline-secondary mb-2"><b>Total to pay:
                             ${{ $total }}</b></a>
                     @if (count($productsInCart) > 0)
-                        <a wire:click="cartPurchase" class="btn bg-primary text-white mb-2">Purchase</a>
+                        <a wire:click="cartPurchase" wire:confirm="Are you sure want to purchase this items ?"
+                            class="btn bg-primary text-white mb-2">Purchase</a>
 
                         <button wire:click="cartDelete" wire:confirm="Are you sure want to clear the cart ?"
                             class="btn btn-danger mb-2">Clear Cart</button>

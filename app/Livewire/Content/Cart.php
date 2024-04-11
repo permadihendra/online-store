@@ -39,19 +39,43 @@ class Cart extends Component
         $this->redirect('/product', navigate:true);
     }
 
-    public function cartPurchase(){
+    public function cartPurchase(Request $request){
 
-        // dd(Auth::user()->id);
-        if ($this->productsInSession) {
-            $userId = Auth::user()->id;
-            $order = new Order;
-            $order->user_id = $userId;
-            $order->total = 0;
-            $order->save();
-            session()->flash('status', 'Congratulation, purchase completed. Order Number is '.$userId);
+        if(Auth::check()){
+        
+            if ($this->productsInSession) {
+                $userId = Auth::user()->id;
+                $order = new Order;
+                $order->user_id = $userId;
+                $order->total = 0;
+                $order->save();
+
+                $total = 0;
+                foreach ($this->productsInCart as $product) {
+                    $quantity = $this->productsInSession[$product->id];
+                    $item = new Item;
+                    $item->quantity = $quantity;
+                    $item->price = $product->price;
+                    $item->product_id = $product->id;
+                    $item->order_id = $order->id;
+                    $item->save();
+                    $total = $total + ($product->price * $quantity);
+                }
+                $order->total = $total;
+                $order->save();
+                
+                $newBalance = Auth::user()->balance - $total;
+                Auth::user()->balance = $newBalance;
+                Auth::user()->save();
+
+                $request->session()->forget('products');
+
+                session()->flash('status', 'Congratulation, purchase completed. Order Number is #'.$order->id);
+            }   
         }
-        
-        
+        else {
+            session()->flash('statusNotLoggin', "You're not loggin. Please login first");
+        }
     }
 
     #[Layout('components.layouts.guest')]
