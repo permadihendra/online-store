@@ -29,6 +29,14 @@ class DatabaseSeeder extends Seeder
             'balance' => 5000,
         ]);
 
+        User::create([
+            'name' => 'New User',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('password'),
+            'role' => 'user',
+            'balance' => 5000,
+        ]);
+
         $this->call([
             ProductSeeder::class,
         ]);

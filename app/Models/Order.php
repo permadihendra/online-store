@@ -12,6 +12,17 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'total', 'user_id'
+    ];
+
+    public static function validate($request){
+        $request->validate([
+            'total' => 'required|numeric',
+            'user_id' => 'required|exist:users,id',
+        ]);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

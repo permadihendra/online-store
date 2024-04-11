@@ -18,6 +18,7 @@ class ProductSeeder extends Seeder
             'name' => 'TV',
             'description' => 'Best TV Ever',
             'image' => 'game.png',
+            'image_path' => 'images/tv.png',
             'price' => 7000,
             ],
             [
@@ -25,6 +26,7 @@ class ProductSeeder extends Seeder
                 'name' => 'iPhone',
                 'description' => 'Best iPhone Ever',
                 'image' => 'submarine.jpg',
+                'image_path' => 'images/iphone.png',
                 'price' => 1000,
             ],
             [
@@ -32,6 +34,7 @@ class ProductSeeder extends Seeder
                 'name' => 'Chromecast',
                 'description' => 'Best Chromecast Ever',
                 'image' => 'safe.jpg',
+                'image_path' => 'images/chromecast.jpg',
                 'price' => 1000,
             ],
             [
@@ -39,6 +42,7 @@ class ProductSeeder extends Seeder
                 'name' => 'Glasses',
                 'description' => 'Best Glasses Ever',
                 'image' => 'game.png',
+                'image_path' => 'images/glasses.png',
                 'price' => 1000,
             ],
         ];

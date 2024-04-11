@@ -5,7 +5,10 @@ namespace App\Livewire\Content;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\ProductModel;
+use App\Models\Order;
+use App\Models\Item;
 
 class Cart extends Component
 {
@@ -34,6 +37,21 @@ class Cart extends Component
     public function cartDelete(Request $request){
         $request->session()->forget('products');
         $this->redirect('/product', navigate:true);
+    }
+
+    public function cartPurchase(){
+
+        // dd(Auth::user()->id);
+        if ($this->productsInSession) {
+            $userId = Auth::user()->id;
+            $order = new Order;
+            $order->user_id = $userId;
+            $order->total = 0;
+            $order->save();
+            session()->flash('status', 'Congratulation, purchase completed. Order Number is '.$userId);
+        }
+        
+        
     }
 
     #[Layout('components.layouts.guest')]
