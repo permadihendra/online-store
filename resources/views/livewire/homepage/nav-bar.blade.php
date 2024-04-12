@@ -29,6 +29,7 @@
                             <a href="{{ route('login') }}" class="nav-link">Login</a>
                             <a href="{{ route('register') }}" class="nav-link">Register</a>
                         @else
+                            <a href="{{ route('myaccount.orders') }}" class="nav-link">My Orders</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <a role="button" href="" class="nav-link"

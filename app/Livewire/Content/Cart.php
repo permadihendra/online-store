@@ -44,6 +44,9 @@ class Cart extends Component
         if(Auth::check()){
         
             if ($this->productsInSession) {
+
+                // dd($this->productsInSession);
+
                 $userId = Auth::user()->id;
                 $order = new Order;
                 $order->user_id = $userId;
@@ -51,8 +54,13 @@ class Cart extends Component
                 $order->save();
 
                 $total = 0;
+                // dd($this->productsInCart);
                 foreach ($this->productsInCart as $product) {
-                    $quantity = $this->productsInSession[$product->id];
+
+                    // dd($product->description);
+                   
+
+                    $quantity = session('products')[$product->id];
                     $item = new Item;
                     $item->quantity = $quantity;
                     $item->price = $product->price;
@@ -61,6 +69,9 @@ class Cart extends Component
                     $item->save();
                     $total = $total + ($product->price * $quantity);
                 }
+
+                // dd($item);
+
                 $order->total = $total;
                 $order->save();
                 
@@ -71,6 +82,7 @@ class Cart extends Component
                 $request->session()->forget('products');
 
                 session()->flash('status', 'Congratulation, purchase completed. Order Number is #'.$order->id);
+                $this->redirect('/myaccount/orders', navigate: true);
             }   
         }
         else {
